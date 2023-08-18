@@ -1,0 +1,46 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fafcfe;
+  background-size: contain;
+  background-image: url('/images/wave.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-blend-mode: multiply;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+ul {
+  padding-left: 20px;
+  text-align: justify;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* apexcharts */
+#apexchartsDashboardAreaChart .apexcharts-tooltip {
+  border: none;
+}
+
+#apexchartsDashboardAreaChart .apexcharts-tooltip .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08), 0px 8px 16px rgba(50, 50, 71, 0.06);
+}
+
+#apexchartsDashboardPeiChart .apexcharts-tooltip-series-group {
+  padding-bottom: 0;
+}

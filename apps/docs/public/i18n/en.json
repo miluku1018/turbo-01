@@ -1,0 +1,56 @@
+{
+  "local": "en",
+  "logType": {
+    "Data Creation": "Data Creation",
+    "Update Data" : "Update Data",
+    "Remove Data": "Remove Data"
+  },
+  "userRole": {
+    "USER_VIEWER": "View-Only",
+    "USER_PRIMARY": "Primary",
+    "USER_AUTHORIZED_PERSON": "Operating"
+  },
+  "operationType": {
+    "UserCreateCommand": "Creation",
+    "UserRemoveCommand": "Removal",
+    "WalletCreateCommand": "Wallet",
+    "WalletWithdrawalCommand": "Withdrawal",
+    "PolicyCreateCommand": "New Policy",
+    "WhitelistedWalletCreateCommand": "Wallet",
+    "WhitelistedBankCreateCommand": "Bank"
+  },
+  "operationState": {
+    "FAILED": "Failed",
+    "REJECTED": "Rejected",
+    "APPROVED": "Approved",
+    "REVIEWING": "Reviewing",
+    "EXECUTING": "Executing",
+    "COMPLETED": "Completed"
+  },
+  "dailyLimitBreakpoint": {
+    "FULL": "Threshold: 100% ( = 5,000,000 USD )",
+    "HALF": "Threshold: 50% ( = 2,500,000 USD )",
+    "QUARTER": "Threshold: 25% ( = 1,250,000 USD )",
+    "THREE_QUARTERS": "Threshold: 75% ( = 3,750,000 USD )"
+  },
+  "approverGroupTriggerCondition": {
+    "EVERY_TRANSACTION": "Triggered every time",
+    "FULL": "Triggered at 100% of total daily limit",
+    "HALF": "Triggered at 50% of total daily limit",
+    "QUARTER": "Triggered at 25% of total daily limit",
+    "THREE_QUARTERS": "Triggered at 75% of total daily limit"
+  },
+  "whitelistedOwnerType": {
+    "SELF": "Self",
+    "DIRECTOR": "Director",
+    "EMPLOYEE": "Employee",
+    "SUBSIDIARY": "Subsidiary",
+    "SHAREHOLDER": "Shareholder",
+    "THIRD_PARTY": "Third Party"
+  },
+  "custodyCompany": {
+    "HK": "Aegis Custody Company Limited",
+    "SD": "Aegis Trust Company",
+    "SG": "Aegis Custody Pte Ltd"
+  }
+}
