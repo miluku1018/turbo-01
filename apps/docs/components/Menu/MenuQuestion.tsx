@@ -1,7 +1,9 @@
 import { Link, TooltipIcon } from "@components/UI";
+import CircleIcon from "@mui/icons-material/FiberManualRecord";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import { Divider, Stack, Typography } from "@mui/material";
+import { useRequest } from "ahooks";
 import { Fragment } from "react";
 
 const style = {
@@ -39,9 +41,9 @@ const getServiceInfo = async () => {
 };
 
 const MenuQuestion = () => {
-  // const { data } = useRequest(getServiceInfo, {
-  //   pollingInterval: 60000,
-  // })
+  const { data } = useRequest(getServiceInfo, {
+    pollingInterval: 60000,
+  });
 
   const list = [
     {
@@ -49,12 +51,12 @@ const MenuQuestion = () => {
       info: " Indicates whether the current time falls within our service hours. Requests initiated outside of service time will be processed in the order they were received once the next applicable service time begins.",
       value: (
         <Stack direction="row" alignItems="center" gap="5px">
-          {/* {data?.isAvailable ? "Available" : "Unavailable"}
+          {data?.isAvailable ? "Available" : "Unavailable"}
           {data?.isAvailable ? (
             <CircleIcon color="success" sx={{ fontSize: 12 }} />
           ) : (
             <CircleIcon color="disabled" sx={{ fontSize: 12 }} />
-          )} */}
+          )}
         </Stack>
       ),
     },

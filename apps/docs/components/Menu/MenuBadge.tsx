@@ -1,25 +1,25 @@
-import { useNotice } from '@core/context/notice'
-import Badge from '@mui/material/Badge'
-import Typography from '@mui/material/Typography'
-import React from 'react'
+import { useNotice } from "@core/context/notice";
+import Badge from "@mui/material/Badge";
+import Typography from "@mui/material/Typography";
+import React from "react";
 
 interface MenuBadgeProps {
-  name?: string
+  name?: string;
 }
 
 const style = {
   wrapper: {
-    '& .MuiBadge-badge': {
-      right: '-12px',
-      color: 'white !important',
+    "& .MuiBadge-badge": {
+      right: "-12px",
+      color: "white !important",
     },
   },
-}
+};
 
 const MenuBadge: React.FC<MenuBadgeProps> = ({ name }) => {
-  const { notice } = useNotice()
+  const { notice } = useNotice();
 
-  const count = name ? notice[name] : undefined
+  const count = name ? notice[name] : undefined;
 
   return (
     <Badge sx={style.wrapper} color="primary" badgeContent={count}>
@@ -27,7 +27,7 @@ const MenuBadge: React.FC<MenuBadgeProps> = ({ name }) => {
         {name}
       </Typography>
     </Badge>
-  )
-}
+  );
+};
 
-export default MenuBadge
+export default MenuBadge;

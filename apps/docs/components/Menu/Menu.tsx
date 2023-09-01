@@ -1,4 +1,5 @@
 import { Button, Link } from "@components/UI";
+import { useAuth } from "@core/context/auth";
 import { MenuConfig } from "@core/types";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ListItemText from "@mui/material/ListItemText";
@@ -21,7 +22,7 @@ const style = {
 };
 
 const Menu: React.FC<MenuConfig> = ({ icon: Icon, type, path, menus = [] }) => {
-  // const { me, logOut } = useAuth()
+  const { me, logOut } = useAuth();
 
   const [open, setOpen] = useState<null | HTMLElement>(null);
 
@@ -30,7 +31,7 @@ const Menu: React.FC<MenuConfig> = ({ icon: Icon, type, path, menus = [] }) => {
   };
 
   const handleClose = (name?: string) => {
-    // if (name === "Log Out") logOut();
+    if (name === "Log Out") logOut();
     setOpen(null);
   };
 
@@ -56,7 +57,7 @@ const Menu: React.FC<MenuConfig> = ({ icon: Icon, type, path, menus = [] }) => {
             endIcon={menus.length > 0 ? <ArrowDropDownIcon /> : undefined}
             onClick={handleOpen}
           >
-            {/* {type === "email" ? me?.email : type} */}
+            {type === "email" ? me?.email : type}
           </Button>
         )}
       </Link>

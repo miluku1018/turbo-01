@@ -1,4 +1,5 @@
 import { Link } from "@components/UI";
+import { useAuth } from "@core/context/auth";
 import { MenuConfig } from "@core/types";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
@@ -34,12 +35,12 @@ const style = {
 };
 
 const MenuCollapse: React.FC<MenuConfig> = ({ type, menus = [] }) => {
-  // const { me, logOut } = useAuth()
+  const { me, logOut } = useAuth();
 
   const [open, setOpen] = useState(false);
 
   const handleClose = (name?: string) => {
-    // if (name === "Log Out") logOut();
+    if (name === "Log Out") logOut();
     setOpen(false);
   };
 
@@ -47,7 +48,7 @@ const MenuCollapse: React.FC<MenuConfig> = ({ type, menus = [] }) => {
     <>
       <ListItemButton sx={style.menuBtn} onClick={() => setOpen(!open)}>
         <Typography variant="menuType" color="text.secondary" sx={style.type}>
-          {/* {type === "email" ? me?.email : type} */}
+          {type === "email" ? me?.email : type}
         </Typography>
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>

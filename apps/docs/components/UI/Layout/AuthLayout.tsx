@@ -1,8 +1,10 @@
+import { useAuth } from "@core/context/auth";
 import { Box, Stack, Typography } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import aegisCustodyImg from "@public/images/aegis-custody.svg";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Progress from "./Progress";
 import Sidebar from "./Sidebar";
@@ -60,59 +62,63 @@ const style = {
 };
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
-  // const router = useRouter()
+  const router = useRouter();
 
-  // const { status } = useAuth()
+  const { status } = useAuth();
+  console.log("status :", status);
 
-  // const { data } = useAppVersion()
+  // const { data } = useAppVersion();
 
-  // useEffect(() => {
-  //   if (status === 'reviewing') router.push('/onboarding/status')
+  useEffect(() => {
+    if (status === "reviewing") router.push("/onboarding/status");
 
-  //   if (status === 'onboarding') router.push('/onboarding')
+    if (status === "onboarding") router.push("/onboarding");
 
-  //   if (status === 'unauthenticated') router.push('/logIn')
-  // }, [router, status])
+    if (status === "unauthenticated") router.push("/logIn");
+  }, [router, status]);
 
-  // if (status === 'loading') {
-  //   return <></>
-  // }
+  if (status === "loading") {
+    return <></>;
+  }
 
-  return (
-    <>
-      <Progress />
+  if (status === "authenticated") {
+    return (
+      <>
+        <Progress />
 
-      <Navbar />
+        <Navbar />
 
-      <Box sx={style.container}>
-        <Stack gap={2}>
-          {/* <PendingAlert /> */}
-          <Sidebar />
-        </Stack>
+        <Box sx={style.container}>
+          <Stack gap={2}>
+            <Sidebar />
+          </Stack>
 
-        <Box component="main" sx={style.main}>
-          {children}
-        </Box>
-      </Box>
-
-      <Box component="footer" sx={style.footer}>
-        <Typography color="primary" sx={style.text}>
-          Version
-        </Typography>
-
-        <Box sx={style.logo}>
-          <Typography color="primary">Powered by</Typography>
-          <Box width="100%" maxWidth="190px">
-            <Image
-              src={aegisCustodyImg}
-              alt="aegis-custody"
-              layout="responsive"
-            />
+          <Box component="main" sx={style.main}>
+            {children}
           </Box>
         </Box>
-      </Box>
-    </>
-  );
+
+        <Box component="footer" sx={style.footer}>
+          <Typography color="primary" sx={style.text}>
+            Version
+          </Typography>
+
+          <Box sx={style.logo}>
+            <Typography color="primary">Powered by</Typography>
+            <Box width="100%" maxWidth="190px">
+              <Image
+                src={aegisCustodyImg}
+                alt="aegis-custody"
+                layout="responsive"
+              />
+            </Box>
+          </Box>
+        </Box>
+      </>
+    );
+  }
+
+  return <></>;
 };
 
 export default AuthLayout;

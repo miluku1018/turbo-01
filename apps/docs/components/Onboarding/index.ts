@@ -1,0 +1,6 @@
+export { default as OnboardingHK } from './OnboardingHK'
+export { default as OnboardingLink } from './OnboardingLink'
+export { default as OnboardingPended } from './OnboardingPended'
+export { default as OnboardingPending } from './OnboardingPending'
+export { default as OnboardingUS } from './OnboardingUS'
+export { default as OnboardingSG } from './OnboardingSG'
